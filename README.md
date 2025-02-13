@@ -77,3 +77,37 @@ sudo nano /etc/systemd/system/nginx.service
 sudo systemctl daemon-reload
 
 ````
+
+##### 4. Networking and Security
+##### Blocking all incoming traffic except SSH and HTTP.
+````linux
+sudo ufw default deny incoming
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw enable
+
+````
+
+##### Checking which ports are currently open 
+````linux
+sudo netstat -tulnp
+````
+
+##### Setting up an SSH key-based authentication
+````linux
+# Generate SSH key pair on client machine
+ssh-keygen -t rsa -b 4096
+ssh-copy-id user@remote-server
+
+
+# On the remote server, disable password login:r
+sudo nano /etc/ssh/sshd_config
+
+
+# Disable password authentication
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+
+# Restart SSH service
+sudo systemctl restart sshd
+````
