@@ -22,7 +22,7 @@ sudo chmod -R 750 /var/www/project
 ````
 
 ##### Restricting SSH Access for Dev1 and Dev2
-````linux
+````javascript
 sudo nano /etc/ssh/sshd_config
 DenyUsers HypotheticalCorpDev1 HypotheticalCorpDev2
 sudo systemctl restart sshd
