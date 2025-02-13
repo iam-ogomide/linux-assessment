@@ -54,3 +54,26 @@ du -sh /var/log/*
 ````linux
 sudo tail -f /var/log/syslog
 ````
+
+
+##### 3. Application Management
+##### Nginx Installation and Configuration
+````linux
+# Install Nginx
+sudo apt update
+sudo apt install nginx
+
+# Enable and start Nginx service
+sudo systemctl enable nginx
+sudo systemctl start nginx
+
+# Verify service status
+sudo systemctl status nginx
+
+# Auto-Restart Nginx on Failure
+sudo nano /etc/systemd/system/nginx.service
+
+#Reload systemd:
+sudo systemctl daemon-reload
+
+````
